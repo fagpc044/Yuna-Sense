@@ -54,19 +54,23 @@ body {
 }
 
 
-/* LOGO */
+/* =========================
+   LOGO
+========================= */
 
 .logo {
     color: #ffffff;
 
-    font-size: 20px;
+    font-size: 25px;
     font-weight: bold;
 
     white-space: nowrap;
 }
 
 
-/* LINKS DA NAVBAR */
+/* =========================
+   LINKS DA NAVBAR
+========================= */
 
 .nav-links {
     display: flex;
@@ -76,7 +80,9 @@ body {
 }
 
 
-/* BOTÃO PERFIL */
+/* =========================
+   BOTÃO PERFIL
+========================= */
 
 .perfil-btn {
     display: flex;
@@ -165,7 +171,9 @@ body {
 }
 
 
-/* TÍTULO */
+/* =========================
+   TÍTULO DA MENSAGEM
+========================= */
 
 .mensagem-diaria h2 {
     margin: 0 0 8px;
@@ -175,7 +183,9 @@ body {
 }
 
 
-/* TEXTO */
+/* =========================
+   TEXTO DA MENSAGEM
+========================= */
 
 .mensagem-diaria p {
     margin: 0;
@@ -251,7 +261,9 @@ body {
 }
 
 
-/* SCROLLBAR */
+/* =========================
+   SCROLLBAR
+========================= */
 
 #mensagens::-webkit-scrollbar {
     width: 6px;
@@ -269,11 +281,31 @@ body {
 
 
 /* =========================
-   MENSAGEM DO USUÁRIO
+   BASE DAS MENSAGENS
 ========================= */
 
-.user-message {
+.mensagem {
+    display: block;
+
+    width: fit-content;
+
+    line-height: 1.4;
+
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+
+/* =========================
+   MENSAGEM DO USUÁRIO
+   FICA À DIREITA
+========================= */
+
+.mensagem.usuario {
     align-self: flex-end;
+
+    margin-left: auto;
+    margin-right: 0;
 
     max-width: 75%;
 
@@ -282,6 +314,9 @@ body {
     background-color: #7C5CFA;
 
     color: #ffffff;
+
+    /* Borda */
+    border: 1px solid rgba(255, 255, 255, 0.30);
 
     border-radius:
         18px
@@ -293,15 +328,22 @@ body {
 
     word-wrap: break-word;
     overflow-wrap: break-word;
+
+    box-shadow:
+        0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
 
 /* =========================
    MENSAGEM DA YUNA
+   FICA À ESQUERDA
 ========================= */
 
-.bot-message {
+.mensagem.bot {
     align-self: flex-start;
+
+    margin-left: 0;
+    margin-right: auto;
 
     max-width: 75%;
 
@@ -310,6 +352,8 @@ body {
     background-color: #3A3455;
 
     color: #ffffff;
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
 
     border-radius:
         18px
@@ -321,6 +365,9 @@ body {
 
     word-wrap: break-word;
     overflow-wrap: break-word;
+
+    box-shadow:
+        0 2px 8px rgba(0, 0, 0, 0.10);
 }
 
 
@@ -588,8 +635,8 @@ img {
     }
 
 
-    .user-message,
-    .bot-message {
+    .mensagem.usuario,
+    .mensagem.bot {
         max-width: 85%;
     }
 
@@ -709,11 +756,11 @@ img {
 
 
     /* =========================
-       MENSAGENS
+       MENSAGENS NO CELULAR
     ========================== */
 
-    .user-message,
-    .bot-message {
+    .mensagem.usuario,
+    .mensagem.bot {
         max-width: 90%;
 
         padding:
@@ -849,6 +896,12 @@ img {
         padding: 10px;
 
         min-height: 380px;
+    }
+
+
+    .mensagem.usuario,
+    .mensagem.bot {
+        max-width: 92%;
     }
 
 
