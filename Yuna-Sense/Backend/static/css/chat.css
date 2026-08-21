@@ -17,7 +17,12 @@ body {
 body {
     background-color: #1E1B2E;
     color: #ffffff;
-    font-family: Arial, Helvetica, sans-serif;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
     min-height: 100vh;
     min-height: 100dvh;
 }
@@ -27,22 +32,91 @@ body {
    NAVBAR
 ========================= */
 
-nav {
+.navbar {
     width: 100%;
-    height: 50px;
+    height: 58px;
+
+    padding: 0 25px;
 
     background-color: #7C5CFA;
 
     border-radius: 0 0 18px 18px;
 
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+    box-shadow:
+        0 3px 10px rgba(0, 0, 0, 0.20);
 
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    position: relative;
+    z-index: 10;
+}
+
+
+/* LOGO */
+
+.logo {
+    color: #ffffff;
+
+    font-size: 20px;
+    font-weight: bold;
+
+    white-space: nowrap;
+}
+
+
+/* LINKS DA NAVBAR */
+
+.nav-links {
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+}
+
+
+/* BOTÃO PERFIL */
+
+.perfil-btn {
     display: flex;
     align-items: center;
     justify-content: center;
 
-    position: relative;
-    z-index: 10;
+    min-height: 36px;
+
+    padding: 8px 15px;
+
+    background-color: rgba(255, 255, 255, 0.15);
+
+    color: #ffffff;
+
+    border: 1px solid rgba(255, 255, 255, 0.25);
+
+    border-radius: 12px;
+
+    text-decoration: none;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    transition:
+        background-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+.perfil-btn:hover {
+    background-color: rgba(255, 255, 255, 0.25);
+
+    text-decoration: none;
+
+    transform: translateY(-1px);
+}
+
+
+.perfil-btn:active {
+    transform: translateY(0);
 }
 
 
@@ -52,7 +126,7 @@ nav {
 
 .container {
     width: 100%;
-    max-width: 1100px;
+    max-width: 900px;
 
     margin: 0 auto;
 
@@ -65,14 +139,14 @@ nav {
 
 
 /* =========================
-   MENSAGEM DIÁRIA
+   MENSAGEM DO DIA
 ========================= */
 
 .mensagem-diaria {
     width: 100%;
     max-width: 700px;
 
-    margin: 0 auto 20px;
+    margin: 0 auto 18px;
 
     padding: 18px 22px;
 
@@ -80,21 +154,18 @@ nav {
 
     border-radius: 18px;
 
-    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.20);
+    box-shadow:
+        0 5px 18px rgba(0, 0, 0, 0.20);
 
     color: #ffffff;
 
     text-align: center;
 
-    position: relative;
-
-    z-index: 5;
-
     overflow-wrap: break-word;
 }
 
 
-/* TÍTULO DA MENSAGEM */
+/* TÍTULO */
 
 .mensagem-diaria h2 {
     margin: 0 0 8px;
@@ -104,7 +175,7 @@ nav {
 }
 
 
-/* TEXTO DA MENSAGEM */
+/* TEXTO */
 
 .mensagem-diaria p {
     margin: 0;
@@ -116,7 +187,7 @@ nav {
 
 
 /* =========================
-   ÁREA DO CHAT
+   ÁREA EXTERNA DO CHAT
 ========================= */
 
 .Fora {
@@ -131,14 +202,19 @@ nav {
 
     border-radius: 22px;
 
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.20);
+    box-shadow:
+        0 5px 20px rgba(0, 0, 0, 0.20);
 }
 
+
+/* =========================
+   ÁREA INTERNA
+========================= */
 
 .Dentro {
     width: 100%;
 
-    min-height: 500px;
+    height: 550px;
 
     background-color: #211D34;
 
@@ -148,14 +224,16 @@ nav {
 
     display: flex;
     flex-direction: column;
+
+    overflow: hidden;
 }
 
 
 /* =========================
-   ÁREA DAS MENSAGENS
+   MENSAGENS
 ========================= */
 
-#chat {
+#mensagens {
     width: 100%;
 
     flex: 1;
@@ -173,8 +251,25 @@ nav {
 }
 
 
+/* SCROLLBAR */
+
+#mensagens::-webkit-scrollbar {
+    width: 6px;
+}
+
+#mensagens::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+#mensagens::-webkit-scrollbar-thumb {
+    background-color: #5C527C;
+
+    border-radius: 10px;
+}
+
+
 /* =========================
-   MENSAGENS DO USUÁRIO
+   MENSAGEM DO USUÁRIO
 ========================= */
 
 .user-message {
@@ -188,18 +283,21 @@ nav {
 
     color: #ffffff;
 
-    border-radius: 18px 18px 4px 18px;
+    border-radius:
+        18px
+        18px
+        4px
+        18px;
 
     line-height: 1.4;
 
     word-wrap: break-word;
-
     overflow-wrap: break-word;
 }
 
 
 /* =========================
-   MENSAGENS DA YUNA
+   MENSAGEM DA YUNA
 ========================= */
 
 .bot-message {
@@ -213,21 +311,24 @@ nav {
 
     color: #ffffff;
 
-    border-radius: 18px 18px 18px 4px;
+    border-radius:
+        18px
+        18px
+        18px
+        4px;
 
     line-height: 1.4;
 
     word-wrap: break-word;
-
     overflow-wrap: break-word;
 }
 
 
 /* =========================
-   FORMULÁRIO DO CHAT
+   ÁREA DO INPUT
 ========================= */
 
-.chat-form {
+.input-area {
     width: 100%;
 
     display: flex;
@@ -242,8 +343,7 @@ nav {
    INPUT
 ========================= */
 
-.chat-form input,
-#mensagem {
+#entrada-usuario {
     flex: 1;
 
     min-width: 0;
@@ -253,7 +353,6 @@ nav {
     padding: 0 15px;
 
     border: none;
-
     outline: none;
 
     border-radius: 14px;
@@ -266,9 +365,8 @@ nav {
 }
 
 
-.chat-form input::placeholder,
-#mensagem::placeholder {
-    color: #aaa4c0;
+#entrada-usuario::placeholder {
+    color: #AAA4C0;
 }
 
 
@@ -276,8 +374,7 @@ nav {
    BOTÃO ENVIAR
 ========================= */
 
-.chat-form button,
-#enviar {
+#botao-enviar {
     height: 45px;
 
     padding: 0 20px;
@@ -291,6 +388,7 @@ nav {
     color: #ffffff;
 
     font-size: 15px;
+    font-weight: 600;
 
     cursor: pointer;
 
@@ -300,36 +398,114 @@ nav {
 }
 
 
-.chat-form button:hover,
-#enviar:hover {
+#botao-enviar:hover {
     background-color: #6949E8;
 
     transform: translateY(-1px);
 }
 
 
-.chat-form button:active,
-#enviar:active {
+#botao-enviar:active {
     transform: translateY(0);
 }
 
 
 /* =========================
-   SCROLLBAR DO CHAT
+   SISTEMA DE EMOÇÃO
 ========================= */
 
-#chat::-webkit-scrollbar {
-    width: 6px;
+.emocao {
+    width: 100%;
+    max-width: 700px;
+
+    margin-top: 18px;
+
+    padding: 18px;
+
+    background-color: #29243F;
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 5px 18px rgba(0, 0, 0, 0.15);
+
+    text-align: center;
 }
 
-#chat::-webkit-scrollbar-track {
-    background: transparent;
+
+.emocao h3 {
+    margin: 0 0 14px;
+
+    font-size: 16px;
+    font-weight: 600;
 }
 
-#chat::-webkit-scrollbar-thumb {
-    background-color: #5C527C;
 
-    border-radius: 10px;
+/* =========================
+   BOTÕES DE EMOÇÃO
+========================= */
+
+.emocoes {
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 10px;
+
+    flex-wrap: wrap;
+}
+
+
+.emocao-btn {
+    width: 48px;
+    height: 48px;
+
+    padding: 0;
+
+    border: none;
+
+    border-radius: 14px;
+
+    background-color: #332E4A;
+
+    font-size: 24px;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+.emocao-btn:hover {
+    background-color: #453D63;
+
+    transform: translateY(-2px);
+}
+
+
+.emocao-btn.selecionado {
+    background-color: #7C5CFA;
+
+    transform: scale(1.08);
+}
+
+
+/* =========================
+   EMOÇÃO SELECIONADA
+========================= */
+
+#emocao-selecionada {
+    min-height: 20px;
+
+    margin: 12px 0 0;
+
+    color: #C9C3E0;
+
+    font-size: 14px;
 }
 
 
@@ -343,8 +519,9 @@ a {
     text-decoration: none;
 }
 
+
 a:hover {
-    text-decoration: underline;
+    text-decoration: none;
 }
 
 
@@ -367,9 +544,22 @@ img {
 
 @media (max-width: 768px) {
 
+    .navbar {
+        height: 55px;
+
+        padding: 0 18px;
+    }
+
+
+    .logo {
+        font-size: 18px;
+    }
+
+
     .container {
         padding: 20px 15px 30px;
     }
+
 
     .mensagem-diaria {
         max-width: 100%;
@@ -379,13 +569,6 @@ img {
         padding: 16px 18px;
     }
 
-    .mensagem-diaria h2 {
-        font-size: 17px;
-    }
-
-    .mensagem-diaria p {
-        font-size: 14px;
-    }
 
     .Fora {
         max-width: 100%;
@@ -395,17 +578,24 @@ img {
         border-radius: 18px;
     }
 
+
     .Dentro {
-        min-height: 500px;
+        height: 520px;
 
         padding: 15px;
 
         border-radius: 15px;
     }
 
+
     .user-message,
     .bot-message {
         max-width: 85%;
+    }
+
+
+    .emocao {
+        max-width: 100%;
     }
 }
 
@@ -416,36 +606,71 @@ img {
 
 @media (max-width: 480px) {
 
-    nav {
-        height: 48px;
+    .navbar {
+        height: 52px;
 
-        border-radius: 0 0 15px 15px;
+        padding: 0 12px;
+
+        border-radius:
+            0
+            0
+            15px
+            15px;
     }
+
+
+    .logo {
+        font-size: 16px;
+    }
+
+
+    .perfil-btn {
+        min-height: 34px;
+
+        padding: 7px 11px;
+
+        font-size: 13px;
+
+        border-radius: 10px;
+    }
+
 
     .container {
         width: 100%;
 
-        padding: 15px 10px 25px;
+        padding:
+            14px
+            10px
+            25px;
     }
 
 
-    /* MENSAGEM DIÁRIA NO CELULAR */
+    /* =========================
+       MENSAGEM NO CELULAR
+    ========================== */
 
     .mensagem-diaria {
         width: 100%;
 
-        margin: 0 0 12px;
+        margin:
+            0
+            0
+            12px;
 
-        padding: 14px 15px;
+        padding:
+            14px
+            15px;
 
         border-radius: 15px;
     }
+
 
     .mensagem-diaria h2 {
         font-size: 16px;
 
         margin-bottom: 6px;
     }
+
 
     .mensagem-diaria p {
         font-size: 13px;
@@ -454,7 +679,9 @@ img {
     }
 
 
-    /* CHAT */
+    /* =========================
+       CHAT
+    ========================== */
 
     .Fora {
         width: 100%;
@@ -464,14 +691,16 @@ img {
         border-radius: 17px;
     }
 
+
     .Dentro {
         width: 100%;
 
-        min-height: 0;
+        height:
+            calc(100dvh - 240px);
 
-        height: calc(100dvh - 150px);
+        min-height: 400px;
 
-        max-height: 650px;
+        max-height: 600px;
 
         padding: 12px;
 
@@ -479,28 +708,34 @@ img {
     }
 
 
-    /* MENSAGENS */
+    /* =========================
+       MENSAGENS
+    ========================== */
 
     .user-message,
     .bot-message {
         max-width: 90%;
 
-        padding: 10px 13px;
+        padding:
+            10px
+            13px;
 
         font-size: 14px;
     }
 
 
-    /* INPUT */
+    /* =========================
+       INPUT
+    ========================== */
 
-    .chat-form {
+    .input-area {
         gap: 7px;
 
         margin-top: 10px;
     }
 
-    .chat-form input,
-    #mensagem {
+
+    #entrada-usuario {
         height: 42px;
 
         padding: 0 12px;
@@ -509,15 +744,53 @@ img {
     }
 
 
-    /* BOTÃO */
+    /* =========================
+       BOTÃO
+    ========================== */
 
-    .chat-form button,
-    #enviar {
+    #botao-enviar {
         height: 42px;
 
-        padding: 0 14px;
+        padding:
+            0
+            14px;
 
         font-size: 14px;
+
+        border-radius: 12px;
+    }
+
+
+    /* =========================
+       EMOÇÕES
+    ========================== */
+
+    .emocao {
+        margin-top: 12px;
+
+        padding: 14px;
+
+        border-radius: 15px;
+    }
+
+
+    .emocao h3 {
+        font-size: 14px;
+
+        margin-bottom: 10px;
+    }
+
+
+    .emocoes {
+        gap: 7px;
+    }
+
+
+    .emocao-btn {
+        width: 42px;
+        height: 42px;
+
+        font-size: 21px;
 
         border-radius: 12px;
     }
@@ -530,29 +803,58 @@ img {
 
 @media (max-width: 360px) {
 
-    .container {
-        padding-left: 7px;
-        padding-right: 7px;
+    .navbar {
+        padding: 0 9px;
     }
+
+
+    .logo {
+        font-size: 15px;
+    }
+
+
+    .perfil-btn {
+        padding:
+            6px
+            9px;
+
+        font-size: 12px;
+    }
+
+
+    .container {
+        padding:
+            10px
+            7px
+            20px;
+    }
+
 
     .mensagem-diaria {
         padding: 12px;
     }
 
+
     .mensagem-diaria h2 {
         font-size: 15px;
     }
+
 
     .mensagem-diaria p {
         font-size: 12px;
     }
 
+
     .Dentro {
         padding: 10px;
+
+        min-height: 380px;
     }
 
-    .chat-form button,
-    #enviar {
-        padding: 0 11px;
+
+    #botao-enviar {
+        padding:
+            0
+            11px;
     }
 }
