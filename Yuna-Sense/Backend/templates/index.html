@@ -2,35 +2,125 @@
 <html lang="pt-BR">
 
 <head>
-
     <meta charset="UTF-8">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Yuna Sense</title>
 
     <link
         rel="stylesheet"
-        href="{{ url_for('static', filename='css/chat.css') }}"
+        href="{{ url_for('static', filename='css/style.css') }}"
     >
-
-    <link
-        href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap"
-        rel="stylesheet"
-    >
-
-    <title>ChatBot</title>
-
 </head>
 
-
 <body>
-
 
     <!-- =========================
          NAVBAR
     ========================== -->
+
+    <nav>
+        <div class="nav-content">
+            <h1>Yuna Sense</h1>
+        </div>
+    </nav>
+
+
+    <!-- =========================
+         CONTAINER PRINCIPAL
+    ========================== -->
+
+    <main class="container">
+
+
+        <!-- =========================
+             MENSAGEM DIÁRIA
+        ========================== -->
+
+        {% if mensagem_diaria %}
+
+        <section class="mensagem-diaria">
+
+            <h2>Mensagem do dia 🌙</h2>
+
+            <p>
+                {{ mensagem_diaria.texto }}
+            </p>
+
+        </section>
+
+        {% endif %}
+
+
+        <!-- =========================
+             CHAT
+        ========================== -->
+
+        <section class="Fora">
+
+            <div class="Dentro">
+
+
+                <!-- ÁREA DAS MENSAGENS -->
+
+                <div id="chat">
+
+                    <!--
+                        As mensagens do usuário
+                        e da Yuna serão colocadas aqui
+                        pelo JavaScript.
+                    -->
+
+                </div>
+
+
+                <!-- =========================
+                     FORMULÁRIO
+                ========================== -->
+
+                <form
+                    id="chat-form"
+                    class="chat-form"
+                >
+
+                    <input
+                        type="text"
+                        id="mensagem"
+                        name="mensagem"
+                        placeholder="Digite sua mensagem..."
+                        autocomplete="off"
+                        required
+                    >
+
+                    <button
+                        type="submit"
+                        id="enviar"
+                    >
+                        Enviar
+                    </button>
+
+                </form>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+
+    <script
+        src="{{ url_for('static', filename='js/script.js') }}"
+    ></script>
+
+</body>
+
+</html>
 
    <nav class="navbar">
         <div class="logo">
