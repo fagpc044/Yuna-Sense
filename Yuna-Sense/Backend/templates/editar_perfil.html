@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Editar perfil - Yuna Sense</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/editar_perfil.css') }}"
+    >
+
+</head>
+
+<body>
+
+    <nav>
+
+        <h2>Yuna Sense</h2>
+
+        <a href="{{ url_for('perfil') }}">
+            Voltar
+        </a>
+
+    </nav>
+
+
+    <main class="perfil-container">
+
+        <div class="perfil-card">
+
+            <h1>Editar perfil</h1>
+
+
+            <img
+                src="{{ url_for('static', filename='uploads/' + usuario.foto) }}"
+                class="foto-perfil"
+                alt="Sua foto"
+            >
+
+
+            <form
+                method="POST"
+                enctype="multipart/form-data"
+            >
+
+                <label for="bio">
+                    Bio
+                </label>
+
+                <textarea
+                    id="bio"
+                    name="bio"
+                    maxlength="500"
+                    placeholder="Conte um pouco sobre você..."
+                >{{ usuario.bio }}</textarea>
+
+
+                <label for="foto">
+                    Foto de perfil
+                </label>
+
+                <input
+                    type="file"
+                    id="foto"
+                    name="foto"
+                    accept="image/png,image/jpeg,image/webp"
+                >
+
+
+                <button type="submit">
+                    Salvar alterações
+                </button>
+
+            </form>
+
+        </div>
+
+    </main>
+
+</body>
+
+</html>

@@ -1,0 +1,408 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    min-height: 100vh;
+
+    font-family: 'Ubuntu', sans-serif;
+
+    background-color: #1E1B2E;
+
+    color: #ffffff;
+}
+
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar {
+    width: 100%;
+    height: 50px;
+
+    background-color: #7C5CFA;
+
+    border-radius: 0 0 18px 18px;
+
+    box-shadow:
+        0 3px 10px rgba(0, 0, 0, .15);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 0 25px;
+}
+
+
+.logo {
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+
+.nav-links {
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+}
+
+
+.nav-links a {
+    color: white;
+
+    text-decoration: none;
+
+    font-size: 15px;
+
+    padding: 8px 14px;
+
+    border-radius: 10px;
+
+    transition: .2s;
+}
+
+
+.nav-links a:hover {
+    background-color: rgba(255, 255, 255, .15);
+}
+
+
+/* =========================
+   ÁREA PRINCIPAL
+========================= */
+
+.perfil-container {
+    min-height: calc(100vh - 50px);
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 25px;
+
+    padding: 40px 20px;
+}
+
+
+/* =========================
+   CARDS
+========================= */
+
+.perfil-card,
+.historico-card {
+    width: 320px;
+
+    min-height: 430px;
+
+    padding: 30px;
+
+    background-color: #2A2743;
+
+    border: 1px solid #443C70;
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 15px 35px rgba(0, 0, 0, .35),
+        0 0 25px rgba(122, 84, 255, .08);
+}
+
+
+/* =========================
+   CARD PERFIL
+========================= */
+
+.perfil-card {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    transition: .25s;
+}
+
+
+.perfil-card:hover,
+.historico-card:hover {
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 20px 40px rgba(0, 0, 0, .45),
+        0 0 30px rgba(122, 84, 255, .18);
+}
+
+
+/* =========================
+   FOTO
+========================= */
+
+.foto-perfil {
+    width: 130px;
+
+    height: 130px;
+
+    object-fit: cover;
+
+    border-radius: 50%;
+
+    border: 3px solid #7956FF;
+
+    margin-bottom: 20px;
+
+    background: #201E32;
+}
+
+
+/* =========================
+   NOME
+========================= */
+
+.perfil-card h1 {
+    font-size: 24px;
+
+    margin-bottom: 12px;
+
+    color: #ffffff;
+}
+
+
+/* =========================
+   BIO
+========================= */
+
+.perfil-card .bio {
+    font-size: 14px;
+
+    line-height: 1.6;
+
+    color: #D6D2E8;
+
+    margin-bottom: 22px;
+
+    max-width: 250px;
+}
+
+
+/* =========================
+   BOTÃO
+========================= */
+
+.botao-editar {
+    display: inline-block;
+
+    padding: 11px 24px;
+
+    border-radius: 9px;
+
+    background: #7956FF;
+
+    color: white;
+
+    font-size: 13px;
+
+    font-weight: bold;
+
+    text-decoration: none;
+
+    transition: .2s;
+}
+
+
+.botao-editar:hover {
+    background: #8C6CFF;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 6px 15px rgba(121, 86, 255, .35);
+}
+
+
+/* =========================
+   HISTÓRICO
+========================= */
+
+.historico-card {
+    display: flex;
+
+    flex-direction: column;
+
+    transition: .25s;
+}
+
+
+.historico-card h2 {
+    font-size: 22px;
+
+    color: #ffffff;
+
+    margin-bottom: 8px;
+}
+
+
+.historico-subtitulo {
+    font-size: 13px;
+
+    color: #AAA5C4;
+
+    margin-bottom: 22px;
+}
+
+
+/* =========================
+   LISTA
+========================= */
+
+.historico-lista {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+
+    overflow-y: auto;
+
+    max-height: 330px;
+}
+
+
+.registro-emocao {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 12px;
+
+    padding: 13px;
+
+    background: #211F35;
+
+    border: 1px solid #3B365C;
+
+    border-radius: 12px;
+}
+
+
+.registro-data {
+    color: #AAA5C4;
+
+    font-size: 12px;
+
+    white-space: nowrap;
+}
+
+
+.registro-emocao-nome {
+    color: #FFFFFF;
+
+    font-size: 13px;
+
+    text-align: right;
+}
+
+
+/* =========================
+   HISTÓRICO VAZIO
+========================= */
+
+.historico-vazio {
+    flex: 1;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    color: #AAA5C4;
+}
+
+
+.historico-vazio span {
+    font-size: 40px;
+
+    margin-bottom: 15px;
+}
+
+
+.historico-vazio p {
+    font-size: 13px;
+
+    line-height: 1.5;
+}
+
+
+/* =========================
+   RESPONSIVO
+========================= */
+
+@media (max-width: 750px) {
+
+    .perfil-container {
+        flex-direction: column;
+
+        align-items: center;
+
+        padding: 30px 15px;
+    }
+
+
+    .perfil-card,
+    .historico-card {
+        width: 100%;
+
+        max-width: 400px;
+    }
+
+
+    .historico-card {
+        min-height: 350px;
+    }
+
+}
+
+
+@media (max-width: 450px) {
+
+    .navbar {
+        padding: 0 15px;
+    }
+
+
+    .logo {
+        color: white;
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+
+    .nav-links a {
+        font-size: 13px;
+
+        padding: 7px 9px;
+    }
+
+}

@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/chat.css') }}"
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap"
+        rel="stylesheet"
+    >
+
+    <title>ChatBot</title>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         NAVBAR
+    ========================== -->
+
+   <nav class="navbar">
+        <div class="logo">
+            Yuna Sense
+        </div>
+
+        <div class="nav-links">
+            <a href="{{ url_for('perfil') }}">Meu perfil</a>
+        </div>
+    </nav>
+
+
+    <!-- =========================
+         CONTAINER PRINCIPAL
+    ========================== -->
+
+    <div class="container">
+
+
+        <!-- =========================
+             CHAT
+        ========================== -->
+
+        <div class="Fora">
+
+            <div class="Dentro">
+
+
+                <!-- MENSAGENS -->
+
+                <div id="mensagens"></div>
+
+
+                <!-- INPUT -->
+
+                <div class="input-area">
+
+                    <input
+                        type="text"
+                        id="entrada-usuario"
+                        placeholder="Digite aqui..."
+                        autocomplete="off"
+                    >
+
+                    <button
+                        type="button"
+                        onclick="enviar()"
+                        aria-label="Enviar mensagem"
+                    ></button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =========================
+             LATERAL
+        ========================== -->
+
+        <div class="lateral">
+
+
+            <!-- =========================
+                 MENSAGEM DO DIA
+            ========================== -->
+
+            <div class="mensagem-diaria">
+
+                <h2>Mensagem do dia</h2>
+
+
+                {% if mensagem_diaria %}
+
+                    <p>
+                        {{ mensagem_diaria.texto }}
+                    </p>
+
+                {% else %}
+
+                    <p>
+                        Nenhuma mensagem para hoje.
+                    </p>
+
+                {% endif %}
+
+            </div>
+
+
+
+            <!-- =========================
+                 SISTEMA DE EMOÇÃO
+            ========================== -->
+
+            <div class="emocao">
+
+                <h3>
+                    Como você está se sentindo?
+                </h3>
+
+
+                <div class="emocoes">
+
+
+                    <button
+                        type="button"
+                        class="emocao-btn"
+                        data-emocao="muito-triste"
+                        title="Muito triste"
+                    >
+                        😢
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="emocao-btn"
+                        data-emocao="triste"
+                        title="Triste"
+                    >
+                        😔
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="emocao-btn"
+                        data-emocao="neutro"
+                        title="Neutro"
+                    >
+                        😐
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="emocao-btn"
+                        data-emocao="feliz"
+                        title="Feliz"
+                    >
+                        🙂
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="emocao-btn"
+                        data-emocao="muito-feliz"
+                        title="Muito feliz"
+                    >
+                        😄
+                    </button>
+
+                </div>
+
+
+                <p id="emocao-selecionada"></p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+
+    <script
+        src="{{ url_for('static', filename='js/script.js') }}"
+    ></script>
+
+
+</body>
+
+</html>

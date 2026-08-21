@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Meu perfil - Yuna Sense</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/perfil.css') }}"
+    >
+
+</head>
+
+<body>
+
+    <nav class="navbar">
+
+        <div class="logo">
+            Yuna Sense
+        </div>
+
+        <div class="nav-links">
+
+            <a href="{{ url_for('home') }}">
+                Início
+            </a>
+
+            <a href="{{ url_for('logout') }}">
+                Sair
+            </a>
+
+        </div>
+
+    </nav>
+
+
+    <main class="perfil-container">
+
+        <div class="perfil-card">
+
+            {% if usuario.foto %}
+                <img
+                    src="{{ url_for('static', filename='uploads/' + usuario.foto) }}"
+                    alt="Foto de perfil"
+                    class="foto-perfil"
+                >
+            {% else %}
+                <img
+                    src="{{ url_for('static', filename='uploads/default.png') }}"
+                    alt="Foto de perfil"
+                    class="foto-perfil"
+                >
+            {% endif %}
+
+            <h1>
+                {{ usuario.usuario }}
+            </h1>
+
+            <p class="bio">
+                {{ usuario.bio }}
+            </p>
+
+            <a
+                href="{{ url_for('editar_perfil') }}"
+                class="botao-editar"
+            >
+                Editar perfil
+            </a>
+
+        </div>
+
+
+        <div class="historico-card">
+
+            <h2>Histórico de emoções</h2>
+
+            <p class="historico-subtitulo">
+                Como você se sentiu nos últimos dias
+            </p>
+
+
+            <div class="historico-lista">
+
+                {% if historico_emocoes %}
+
+                    {% for registro in historico_emocoes %}
+
+                        <div class="registro-emocao">
+
+                            <div class="registro-data">
+                                {{ registro.data.strftime("%d/%m/%Y") }}
+                            </div>
+
+                            <div class="registro-emocao-nome">
+
+                                {% if registro.emocao == "muito-triste" %}
+                                    😢 Muito triste
+
+                                {% elif registro.emocao == "triste" %}
+                                    😔 Triste
+
+                                {% elif registro.emocao == "neutro" %}
+                                    😐 Neutro
+
+                                {% elif registro.emocao == "feliz" %}
+                                    🙂 Feliz
+
+                                {% elif registro.emocao == "muito-feliz" %}
+                                    😄 Muito feliz
+                                {% endif %}
+
+                            </div>
+
+                        </div>
+
+                    {% endfor %}
+
+                {% else %}
+
+                    <div class="historico-vazio">
+
+                        <span>🌱</span>
+
+                        <p>
+                            Você ainda não registrou nenhuma emoção.
+                        </p>
+
+                    </div>
+
+                {% endif %}
+
+            </div>
+
+        </div>
+
+    </main>
+
+</body>
+
+</html>
