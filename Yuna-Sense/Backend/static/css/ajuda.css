@@ -1,0 +1,556 @@
+/* =========================
+   RESET
+========================= */
+
+* {
+    box-sizing: border-box;
+}
+
+/* =========================
+   CORES DOS TEMAS
+========================= */
+
+:root,
+html[data-theme="escuro"] {
+    color-scheme: dark;
+    --fundo: #1E1B2E;
+    --navbar: #7C5CFA;
+    --superficie: #29243F;
+    --superficie-interna: #211D34;
+    --superficie-mensagem: #3A3455;
+    --superficie-input: #332E4A;
+    --texto: #FFFFFF;
+    --texto-secundario: #C9C3E0;
+    --placeholder: #AAA4C0;
+    --borda: rgba(255, 255, 255, 0.15);
+    --destaque: #7C5CFA;
+    --destaque-hover: #6949E8;
+    --scrollbar: #5C527C;
+    --input-hover: #453D63;
+}
+
+html[data-theme="claro"] {
+    color-scheme: light;
+    --fundo: #F7F4FC;
+    --navbar: #9B7EDE;
+    --superficie: #FFFFFF;
+    --superficie-interna: #FCFAFF;
+    --superficie-mensagem: #E9DDFB;
+    --superficie-input: #F7F4FC;
+    --texto: #302744;
+    --texto-secundario: #6E657D;
+    --placeholder: #81788F;
+    --borda: #E6DDF0;
+    --destaque: #7053B8;
+    --destaque-hover: #5E439C;
+    --scrollbar: #D3C5E8;
+    --input-hover: #F0E8FC;
+}
+
+/* =========================
+   HTML E BODY
+========================= */
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    min-height: 100dvh;
+
+    background-color: var(--fundo);
+    color: var(--texto);
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar {
+    width: 100%;
+    min-height: 58px;
+
+    padding: 0 25px;
+
+    background-color: var(--navbar);
+
+    border-radius: 0 0 18px 18px;
+
+    box-shadow:
+        0 3px 10px rgba(0, 0, 0, 0.20);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 15px;
+
+    position: relative;
+    z-index: 10;
+}
+
+/* =========================
+   LOGO
+========================= */
+
+.logo {
+    color: #FFFFFF;
+
+    font-size: 25px;
+    font-weight: bold;
+
+    white-space: nowrap;
+    text-decoration: none;
+}
+
+/* =========================
+   LINKS DA NAVBAR
+========================= */
+
+.navbar-links {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-left: auto;
+}
+
+.navbar-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 36px;
+
+    padding: 8px 15px;
+
+    background-color: rgba(255, 255, 255, 0.15);
+
+    color: var(--texto);
+
+    border: 1px solid rgba(255, 255, 255, 0.25);
+
+    border-radius: 12px;
+
+    text-decoration: none;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    transition:
+        background-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.navbar-links a:hover,
+.navbar-links a.ativo {
+    background-color: rgba(255, 255, 255, 0.25);
+
+    text-decoration: none;
+
+    transform: translateY(-1px);
+}
+
+/* =========================
+   BOTÃO DE TEMA
+========================= */
+
+#tema-btn {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 24px;
+    padding: 8px;
+    border-radius: 50%;
+    transition: transform 0.2s;
+}
+
+#tema-btn:hover {
+    transform: scale(1.15);
+}
+
+/* =========================
+   CONTAINER PRINCIPAL
+========================= */
+
+.ajuda-pagina {
+    width: 100%;
+    max-width: 900px;
+
+    margin: 0 auto;
+
+    padding: 35px 20px 40px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* =========================
+   TÍTULO
+========================= */
+
+.ajuda-pagina h1 {
+    width: 100%;
+
+    margin: 0 0 12px;
+
+    color: var(--texto);
+
+    font-size: 28px;
+    font-weight: 600;
+
+    text-align: center;
+}
+
+/* =========================
+   TEXTO DE INTRODUÇÃO
+========================= */
+
+.ajuda-introducao {
+    width: 100%;
+    max-width: 700px;
+
+    margin: 0 auto 25px;
+
+    color: var(--texto-secundario);
+
+    font-size: 15px;
+    line-height: 1.5;
+
+    text-align: center;
+
+    overflow-wrap: break-word;
+}
+
+/* =========================
+   LISTA DE SERVIÇOS
+========================= */
+
+.ajuda-lista {
+    width: 100%;
+    max-width: 700px;
+
+    display: grid;
+
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: 18px;
+}
+
+/* =========================
+   CARDS DE AJUDA
+========================= */
+
+.ajuda-card {
+    width: 100%;
+
+    padding: 22px;
+
+    background-color: var(--superficie);
+
+    border: 1px solid var(--borda);
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 5px 18px rgba(0, 0, 0, 0.15);
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.ajuda-card h2 {
+    margin: 0 0 12px;
+
+    color: var(--destaque);
+
+    font-size: 19px;
+    font-weight: 600;
+}
+
+.ajuda-card p {
+    margin: 0 0 18px;
+
+    color: var(--texto-secundario);
+
+    font-size: 14px;
+    line-height: 1.6;
+
+    overflow-wrap: break-word;
+}
+
+.ajuda-card:hover {
+    border-color: var(--destaque);
+
+    transform: translateY(-2px);
+}
+
+/* =========================
+   BOTÕES DE LIGAÇÃO
+========================= */
+
+.botao-ligacao {
+    display: inline-block;
+
+    margin-top: auto;
+    padding: 12px 18px;
+
+    background-color: var(--navbar);
+
+    color: #FFFFFF;
+
+    border: none;
+
+    border-radius: 12px;
+
+    text-decoration: none;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    text-align: center;
+
+    transition:
+        background-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.botao-ligacao:hover {
+    background-color: var(--destaque-hover);
+
+    transform: translateY(-1px);
+}
+
+.botao-ligacao:active {
+    transform: translateY(0);
+}
+
+/* =========================
+   AVISO IMPORTANTE
+========================= */
+
+.aviso-ajuda {
+    width: 100%;
+    max-width: 700px;
+
+    margin-top: 20px;
+    padding: 18px 20px;
+
+    background-color: var(--superficie-mensagem);
+
+    color: var(--texto);
+
+    border: 1px solid var(--borda);
+    border-left: 4px solid var(--destaque);
+
+    border-radius: 14px;
+
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.aviso-ajuda strong {
+    color: var(--texto);
+}
+
+/* =========================
+   LINKS E ACESSIBILIDADE
+========================= */
+
+a {
+    color: var(--texto);
+}
+
+a:focus-visible,
+button:focus-visible {
+    outline: 3px solid var(--texto-secundario);
+    outline-offset: 3px;
+}
+
+/* =========================
+   TRANSIÇÃO ENTRE TEMAS
+========================= */
+
+body,
+.ajuda-card,
+.aviso-ajuda,
+.botao-ligacao {
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease;
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 768px) {
+    .navbar {
+        min-height: 55px;
+        padding: 0 18px;
+    }
+
+    .logo {
+        font-size: 20px;
+    }
+
+    .ajuda-pagina {
+        padding: 25px 15px 30px;
+    }
+
+    .ajuda-lista {
+        max-width: 100%;
+        gap: 14px;
+    }
+
+    .ajuda-card {
+        padding: 18px;
+    }
+}
+
+/* =========================
+   CELULAR
+========================= */
+
+@media (max-width: 480px) {
+    .navbar {
+        min-height: 52px;
+
+        padding: 10px 12px;
+
+        border-radius: 0 0 15px 15px;
+
+        flex-wrap: wrap;
+    }
+
+    .logo {
+        font-size: 18px;
+    }
+
+    .navbar-links {
+        order: 3;
+
+        width: 100%;
+
+        justify-content: center;
+
+        flex-wrap: wrap;
+
+        gap: 5px;
+    }
+
+    .navbar-links a {
+        padding: 7px 9px;
+
+        font-size: 12px;
+    }
+
+    #tema-btn {
+        font-size: 24px;
+        padding: 8px;
+    }
+
+    .ajuda-pagina {
+        width: 100%;
+
+        padding: 20px 12px 28px;
+    }
+
+    .ajuda-pagina h1 {
+        font-size: 23px;
+    }
+
+    .ajuda-introducao {
+        margin-bottom: 18px;
+
+        font-size: 14px;
+    }
+
+    .ajuda-lista {
+        grid-template-columns: 1fr;
+
+        gap: 12px;
+    }
+
+    .ajuda-card {
+        padding: 18px;
+
+        border-radius: 15px;
+    }
+
+    .ajuda-card h2 {
+        font-size: 18px;
+    }
+
+    .ajuda-card p {
+        font-size: 14px;
+    }
+
+    .botao-ligacao {
+        width: 100%;
+
+        padding: 12px;
+
+        font-size: 14px;
+    }
+
+    .aviso-ajuda {
+        margin-top: 15px;
+
+        padding: 14px;
+
+        font-size: 13px;
+    }
+}
+
+/* =========================
+   CELULARES MUITO PEQUENOS
+========================= */
+
+@media (max-width: 360px) {
+    .navbar {
+        padding: 9px;
+    }
+
+    .logo {
+        font-size: 16px;
+    }
+
+    .ajuda-pagina {
+        padding: 15px 9px 20px;
+    }
+
+    .ajuda-pagina h1 {
+        font-size: 21px;
+    }
+
+    .ajuda-card {
+        padding: 15px;
+    }
+
+    .botao-ligacao {
+        font-size: 13px;
+    }
+}

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Criar conta - Yuna</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/login.css') }}"
+    >
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+</head>
+
+<body>
+
+    <main class="login-container">
+
+        {% with mensagens = get_flashed_messages(with_categories=true) %}
+            {% if mensagens %}
+                {% for categoria, mensagem in mensagens %}
+                    <div class="mensagem {{ categoria }}">
+                        {{ mensagem }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        <div class="login-box">
+
+            <h1>Criar conta</h1>
+
+            <form method="POST" action="{{ url_for('cadastro') }}">
+
+                <!-- USUÁRIO -->
+                <div class="input-box">
+
+                    <input
+                        type="text"
+                        name="usuario"
+                        placeholder="Username"
+                        autocomplete="username"
+                        required
+                    >
+
+                    <i class="fa-solid fa-user"></i>
+
+                </div>
+
+                <!-- SENHA -->
+                <div class="input-box">
+
+                    <input
+                        type="password"
+                        name="senha"
+                        placeholder="Password"
+                        autocomplete="new-password"
+                        required
+                    >
+
+                    <i class="fa-solid fa-lock"></i>
+
+                </div>
+
+                <!-- CONFIRMAR SENHA -->
+                <div class="input-box">
+
+                    <input
+                        type="password"
+                        name="confirmar_senha"
+                        placeholder="Confirm password"
+                        autocomplete="new-password"
+                        required
+                    >
+
+                    <i class="fa-solid fa-lock"></i>
+
+                </div>
+
+                <!-- BOTÃO -->
+                <button type="submit">
+                    Register
+                </button>
+
+                <!-- LOGIN -->
+                <p class="register">
+
+                    Already have an account?
+
+                    <a href="{{ url_for('login') }}">
+                        Login
+                    </a>
+
+                </p>
+
+            </form>
+
+        </div>
+
+    </main>
+
+</body>
+
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre Nós | Yuna Sense</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/sobre.css') }}">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">
+            Yuna Sense
+        </div>
+
+        <div class="navbar-links">
+            <a href="{{ url_for('home') }}">Chat</a>
+
+            <a href="{{ url_for('perfil') }}">Perfil</a>
+
+            <a href="{{ url_for('sobre') }}" class="ativo">
+                Sobre Nós
+            </a>
+        </div>
+
+        <button
+            type="button"
+            id="tema-btn"
+            aria-label="Alterar tema"
+        >
+            🌙 Tema
+        </button>
+    </nav>
+
+    <main class="sobre-nos">
+
+        <section class="introducao">
+            <h1>Sobre o Yuna Sense 💜</h1>
+
+            <p>
+                O Yuna Sense nasceu com a proposta de tornar o apoio
+                emocional mais acessível por meio da inteligência artificial.
+                Queremos oferecer um espaço acolhedor onde você possa
+                conversar, expressar seus sentimentos e refletir sobre
+                suas emoções sem medo de ser julgado.
+            </p>
+        </section>
+
+        <section class="sobre-projeto">
+            <h2>Nosso objetivo</h2>
+
+            <p>
+                Acreditamos que cuidar das emoções é importante.
+                Por isso, desenvolvemos uma ferramenta que permite
+                conversar com uma inteligência artificial, explorar
+                sentimentos e encontrar sugestões gerais para o
+                bem-estar emocional.
+            </p>
+        </section>
+
+        <section class="funcionalidades">
+            <h2>O que você encontra no Yuna Sense?</h2>
+
+            <ul>
+                <li>💬 Conversas acolhedoras com inteligência artificial.</li>
+                <li>💜 Um espaço para expressar seus sentimentos.</li>
+                <li>🌱 Sugestões gerais para o bem-estar emocional.</li>
+                <li>📖 Recursos para refletir sobre suas emoções.</li>
+                <li>🎨 Temas visuais para personalizar sua experiência.</li>
+                <li>🆘 Uma página com contatos de apoio e emergência.</li>
+            </ul>
+        </section>
+
+        <section class="limites">
+            <h2>O que o Yuna Sense não é?</h2>
+
+            <p>
+                O Yuna Sense <strong>não é um psicólogo, não realiza
+                atendimento psicológico e não substitui a terapia
+                ou o acompanhamento de profissionais de saúde mental.</strong>
+            </p>
+
+            <p>
+                A inteligência artificial pode cometer erros e não
+                consegue compreender todas as situações como um
+                profissional qualificado. Por isso, suas respostas
+                devem ser usadas como apoio geral, e não como
+                diagnóstico ou orientação médica.
+            </p>
+        </section>
+
+        <section class="ajuda">
+            <h2>Você não precisa enfrentar tudo sozinho 💜</h2>
+
+            <p>
+                Se estiver passando por um momento difícil, considere
+                conversar com alguém de confiança ou procurar um
+                profissional de saúde mental.
+            </p>
+
+            <p>
+                Para apoio emocional gratuito, você pode entrar em
+                contato com o CVV pelo número 188, disponível 24 horas.
+                Em emergências médicas, ligue para o SAMU, no 192.
+            </p>
+
+            <a href="{{ url_for('ajuda') }}" class="botao-ajuda">
+                Ajuda e emergência
+            </a>
+        </section>
+
+        <footer class="mensagem-final">
+            <p>
+                <strong>
+                    O Yuna Sense foi criado para acolher, apoiar
+                    e ajudar você a refletir sobre suas emoções.
+                </strong>
+            </p>
+
+            <p>Você merece acolhimento, respeito e cuidado. 💜</p>
+        </footer>
+
+    </main>
+    <script
+        src="{{ url_for('static', filename='js/tema.js') }}"
+    ></script>
+</body>
+</html>

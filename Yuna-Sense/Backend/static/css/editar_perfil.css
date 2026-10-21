@@ -1,0 +1,335 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    background: var(--fundo);
+    color: var(--texto);
+}
+
+/* =========================
+   CORES DOS TEMAS
+========================= */
+
+/* TEMA ESCURO — visual atual */
+:root,
+html[data-theme="escuro"] {
+    color-scheme: dark;
+
+    --fundo: #1E1B2E;
+    --navbar: #7C5CFA;
+    --superficie: #29243F;
+    --superficie-interna: #211D34;
+    --superficie-mensagem: #3A3455;
+    --superficie-input: #332E4A;
+
+    --texto: #FFFFFF;
+    --texto-secundario: #C9C3E0;
+    --placeholder: #AAA4C0;
+    --borda: rgba(255, 255, 255, 0.15);
+
+    --destaque: #7C5CFA;
+    --destaque-hover: #6949E8;
+}
+
+/* TEMA CLARO */
+html[data-theme="claro"] {
+    color-scheme: light;
+
+    --fundo: #F7F4FC;
+    --navbar: #9B7EDE;
+    --superficie: #FFFFFF;
+    --superficie-interna: #FCFAFF;
+    --superficie-mensagem: #E9DDFB;
+    --superficie-input: #F7F4FC;
+
+    --texto: #302744;
+    --texto-secundario: #6E657D;
+    --placeholder: #81788F;
+    --borda: #E6DDF0;
+
+    --destaque: #7053B8;
+    --destaque-hover: #5E439C;
+}
+
+/* =========================
+   NAVEGAÇÃO
+========================= */
+
+nav {
+    padding: 24px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--navbar);
+}
+
+nav h2 {
+    font-size: 28px;
+    color: #ffffff;
+}
+
+nav a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+nav a:hover {
+    opacity: 0.8;
+}
+
+
+/* =========================
+   ÁREA PRINCIPAL
+========================= */
+
+.perfil-container {
+    min-height: calc(100vh - 90px);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 40px 20px;
+}
+
+
+/* =========================
+   CARD
+========================= */
+
+.perfil-card {
+    width: 420px;
+    padding: 35px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: var(--superficie);
+    border: 1px solid var(--borda);
+    border-radius: 18px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+    text-align: center;
+}
+
+
+/* =========================
+   TÍTULO
+========================= */
+
+.perfil-card h1 {
+    margin-bottom: 25px;
+    font-size: 26px;
+    color: var(--texto);
+}
+
+
+/* =========================
+   FOTO
+========================= */
+
+.foto-perfil {
+    width: 140px;
+    height: 140px;
+    margin-bottom: 30px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid var(--destaque);
+    background: var(--superficie-interna);
+}
+
+
+/* =========================
+   FORMULÁRIO
+========================= */
+
+form {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    text-align: left;
+}
+
+
+/* Labels */
+
+form label {
+    margin-bottom: 8px;
+    font-size: 14px;
+    font-weight: bold;
+    color: var(--texto-secundario);
+}
+
+
+/* =========================
+   TEXTAREA
+========================= */
+
+textarea {
+    width: 100%;
+    min-height: 120px;
+    padding: 13px;
+    margin-bottom: 22px;
+    resize: vertical;
+    border: 1px solid var(--borda);
+    border-radius: 10px;
+    outline: none;
+    background: var(--superficie-input);
+    color: var(--texto);
+    font-family: inherit;
+    font-size: 14px;
+}
+
+textarea::placeholder {
+    color: var(--placeholder);
+}
+
+textarea:focus {
+    border-color: var(--destaque);
+    box-shadow: 0 0 0 3px var(--borda);
+}
+
+
+/* =========================
+   INPUT DE FOTO
+========================= */
+
+input[type="file"] {
+    width: 100%;
+    margin-bottom: 25px;
+    padding: 10px;
+    border: 1px solid var(--borda);
+    border-radius: 10px;
+    background: var(--superficie-input);
+    color: var(--texto);
+    font-family: inherit;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+/* =========================
+    Botão interno do input
+========================= */
+
+input[type="file"]::file-selector-button {
+    margin-right: 12px;
+    padding: 8px 14px;
+    border: none;
+    border-radius: 7px;
+    background: var(--destaque);
+    color: #ffffff;
+    font-family: inherit;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+input[type="file"]::file-selector-button:hover {
+    background: var(--destaque-hover);
+}
+
+
+/* =========================
+   BOTÃO SALVAR
+========================= */
+
+button[type="submit"] {
+    width: 100%;
+    padding: 13px 20px;
+    border: none;
+    border-radius: 10px;
+    background: var(--destaque);
+    color: #ffffff;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+button[type="submit"]:hover {
+    background: var(--destaque-hover);
+    transform: translateY(-2px);
+}
+
+button[type="submit"]:active {
+    transform: translateY(0);
+}
+
+
+/* =========================
+   RESPONSIVIDADE
+========================= */
+
+@media (max-width: 600px) {
+
+    nav {
+        padding: 20px;
+    }
+
+    nav h2 {
+        font-size: 24px;
+    }
+
+    .perfil-container {
+        padding: 25px 15px;
+    }
+
+    .perfil-card {
+        width: 100%;
+
+        padding: 25px;
+    }
+
+    .perfil-card h1 {
+        font-size: 23px;
+    }
+
+    .foto-perfil {
+        width: 120px;
+        height: 120px;
+    }
+}
+
+.voltar-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 36px;
+
+    padding: 8px 15px;
+
+    background-color: rgba(255, 255, 255, 0.15);
+
+    color: var(--texto);
+
+    border: 1px solid rgba(255, 255, 255, 0.25);
+
+    border-radius: 12px;
+
+    text-decoration: none;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    transition:
+        background-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.voltar-link:hover {
+    background-color: rgba(255, 255, 255, 0.25);
+
+    text-decoration: none;
+
+    transform: translateY(-1px);
+}
